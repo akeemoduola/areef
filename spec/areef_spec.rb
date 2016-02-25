@@ -6,7 +6,7 @@ describe 'Todolist App' do
   include Rack::Test::Methods
 
   TodoApplication = Todolist::Application.new
-  
+
   def app
    require "todolist/config/routes.rb"
    TodoApplication
