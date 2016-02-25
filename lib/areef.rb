@@ -1,6 +1,7 @@
 require "areef/version"
 require "areef/utility"
 require "areef/dependencies"
+require "areef/routing/router"
 module Areef
   class Application
     def call(env)
