@@ -10,7 +10,7 @@ module Areef
         path   = request.path_info
         method = request.request_method.downcase.to_sym
         result = @endpoints[method].detect do |endpoint|
-          match_path_with_pattern path, endpoint
+          match_path_with_pattern(path, endpoint)
         end
         return Route.new(@request, result[:klass_and_method]) if result
       end

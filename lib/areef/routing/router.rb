@@ -1,9 +1,6 @@
 module Areef
   module Routing
     class Router
-      def draw(&block)
-        instance_eval(&block)
-      end
 
       [:get, :post, :put, :patch, :delete].each do |method_name|
         define_method(method_name) do |path, to:|
@@ -13,8 +10,12 @@ module Areef
                           pattern: pattern_for(path),
                           klass_and_method: klass_and_method
                         }
-          endpoints[:get] << @route_data
+          endpoints[method_name] << @route_data
         end
+      end
+
+      def draw(&block)
+        instance_eval(&block)
       end
 
       def root(to)
@@ -29,11 +30,11 @@ module Areef
 
       def pattern_for(path)
         placeholders = []
-        path = path.gsub(/(:\w+)/) do |match|
+        regex_part = path.gsub(/(:\w+)/) do |match|
           placeholders << match[1..-1].freeze
           "(?<#{placeholders.last}>[^/?#]+)"
         end
-        [/^#{path}$/, placeholders]
+        [/^#{regex_part}$/, placeholders]
       end
 
       def controller_and_action_for(path_to)
