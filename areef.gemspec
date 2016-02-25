@@ -33,9 +33,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rack-test", "~> 0.6"
-  spec.add_development_dependency "pry"
+  # spec.add_development_dependency "pry"
   spec.add_development_dependency "coveralls"
 
   spec.add_runtime_dependency "rack", "~> 1.0"
+  spec.add_runtime_dependency "pry"
 
 end
