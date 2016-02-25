@@ -1,5 +1,6 @@
 require "areef/version"
-
+require "areef/utility"
+require "areef/dependencies"
 module Areef
   class Application
     def call(env)
@@ -15,9 +16,10 @@ module Areef
     def get_controller_and_action(path, verb)
       _, controller_name, action = path.split("/")
       require "#{controller_name.downcase}_controller.rb"
-      controller_name = Object.const_get(controller_name.capitalize! + "Controller")
+      controller_name = Object.const_get(controller_name.
+                               capitalize! + "Controller")
       action = action.nil? ? verb : "#{verb}_#{action}"
-      [ controller_name, action ]
+      [controller_name, action]
     end
   end
 end
