@@ -1,5 +1,6 @@
 require "./config/application.rb"
-require "./config/routes.rb"
+RACK_ROOT = __dir__
 TodoApplication = Todolist::Application.new
+require "./config/routes.rb"
 
 run TodoApplication

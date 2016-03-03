@@ -1,25 +1,22 @@
-class TodolistController
-  def initialize(request)
-    @request = request
+class TodolistController < Areef::BaseController
+  def index
   end
 
-  def index
-    "['Write a book', 'Build a house', 'Get married', 'Buy a car']"
+  def new
   end
 
   def show
-    "Write a book"
   end
 
   def create
-    "Post go swimming"
+    render :show
   end
 
   def update
-    "Put Write a book"
+    render :show
   end
 
   def destroy
-    "Delete Write a book"
+    render :show
   end
 end

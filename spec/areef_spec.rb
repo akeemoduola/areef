@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-TodoApplication = Todolist::Application.new
-
 describe 'Todolist App' do
   include Rack::Test::Methods
 
@@ -15,31 +13,41 @@ describe 'Todolist App' do
   it "returns a list of all my todos" do
     get '/todo'
     expect(last_response).to be_ok
-    expect(last_response.body).to eq("['Write a book', 'Build a house', 'Get married', 'Buy a car']")
+    expect(last_response.body).to include("['Write a book', 'Build a house', 'Get married', 'Buy a car']")
   end
 
   it "returns first item in my todolist" do
     get '/todo/5'
     expect(last_response).to be_ok
-    expect(last_response.body).to eq("Write a book")
+    expect(last_response.body).to include("Write a book")
   end
 
   it "can respond to post request" do
-    post '/todo/10'
+    post "/todo/10"
     expect(last_response).to be_ok
-    expect(last_response.body).to eq("Post go swimming")
+    expect(last_response.body).to include("Write a book")
   end
 
   it "can respond to put request" do
-    put '/todo/20'
+    put "/todo/20"
     expect(last_response).to be_ok
-    expect(last_response.body).to eq("Put Write a book")
+    expect(last_response.body).to include("Write a book")
   end
 
   it "can respond to delete request" do
-    delete '/todo/2'
+    delete "/todo/2"
     expect(last_response).to be_ok
-    expect(last_response.body).to eq("Delete Write a book")
+    expect(last_response.body).to include("Write a book")
+  end
+end
+describe Areef::Application do
+  let(:app) { Areef::Application.new }
+  before :each do
+    allow_message_expectations_on_nil
+  end
+
+  it "responds to call" do
+    expect(app.respond_to?(:call)).to be true
   end
 end
 
