@@ -10,10 +10,11 @@ module Areef
       @request = Rack::Request.new(env)
       route = mapper.map_to_route(@request)
       if route
-        response = route.dispatch
-        return [200, { "Content-Type" => "text/html" }, [response]]
+        route.dispatch
+      else
+        [404, {}, ["Route not found"]]
       end
-      [404, {}, ["Route not found"]]
+
     end
 
     def mapper

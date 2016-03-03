@@ -12,7 +12,10 @@ module Areef
       end
 
       def dispatch
-        klass.new(request).send(method_name)
+        controller = klass.new(request)
+        controller_response = controller.send(method_name)
+        controller_response_saved = controller.get_response
+        controller_response_saved ? controller_response_saved : controller.render(method_name)
       end
     end
   end

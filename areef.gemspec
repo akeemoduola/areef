@@ -38,5 +38,9 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "rack", "~> 1.0"
   spec.add_runtime_dependency "pry"
+  spec.add_runtime_dependency "pry-nav", "0.2.4"
+  spec.add_runtime_dependency "erubis", "2.7.0"
+  spec.add_runtime_dependency "tilt", "2.0.1"
+  spec.add_runtime_dependency "sqlite3", "1.3.11"
 
 end
