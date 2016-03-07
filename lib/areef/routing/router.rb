@@ -22,6 +22,17 @@ module Areef
         get "/", to: to
       end
 
+      def resources(args)
+        args = args.to_s
+        get("/#{args}", to: "#{args}#index")
+        get("/#{args}/new", to: "#{args}#new")
+        get("/#{args}/:id", to: "#{args}#show")
+        get("/#{args}/edit/:id", to: "#{args}#edit")
+        delete("/#{args}/:id", to: "#{args}#destroy")
+        post("/#{args}", to: "#{args}#create")
+        put("/#{args}/:id", to: "#{args}#update")
+      end
+
       def endpoints
         @endpoints ||= Hash.new { |hash, key| hash[key] = [] }
       end

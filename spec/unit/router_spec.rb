@@ -15,11 +15,6 @@ describe Areef::Routing::Router do
     router.draw(&block).route_data
   end
 
-  def route(regexp, placeholders, controller, action, path)
-    pattern = [regexp, placeholders]
-    { path: path, pattern: pattern, klass_and_method: [controller, action] }
-  end
-
   context "endpoints" do
     context "get '/photos', to: 'photos#index'" do
       subject do

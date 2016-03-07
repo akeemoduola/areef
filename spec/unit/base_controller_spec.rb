@@ -13,6 +13,13 @@ describe Areef::BaseController do
     end
   end
 
+  describe "#params" do
+    it "Returns a hash" do
+      allow(ENV).to receive(:params).and_return({})
+      expect(Areef::BaseController.new(ENV).params).to be_an_instance_of Hash
+    end
+  end
+
   describe "#response" do
     it "Returns a new instance of Rack Response" do
       expect(Areef::BaseController.new(ENV).response("")).to be_an_instance_of Rack::Response
