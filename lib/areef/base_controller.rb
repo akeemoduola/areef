@@ -5,11 +5,11 @@ module Areef
     attr_reader :request
 
     def initialize(env)
-      @request ||= Rack::Request.new(env)
+      @request ||= env
     end
 
     def params
-      @request.params
+      request.params
     end
 
     def response(body, status = 200, header = {})
