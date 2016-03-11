@@ -1,6 +1,6 @@
 # Areef
 
-[![Test Coverage](https://codeclimate.com/github/andela-aoduola/areef/badges/coverage.svg)](https://codeclimate.com/github/andela-aoduola/areef/coverage)
+[![Coverage Status](https://coveralls.io/repos/github/andela-aoduola/areef/badge.svg?branch=master)](https://coveralls.io/github/andela-aoduola/areef?branch=master)
 [![Code Climate](https://codeclimate.com/github/andela-aoduola/areef/badges/gpa.svg)](https://codeclimate.com/github/andela-aoduola/areef)
 [![Circle CI](https://circleci.com/gh/andela-aoduola/areef.svg?style=svg)](https://circleci.com/gh/andela-aoduola/areef)
 
