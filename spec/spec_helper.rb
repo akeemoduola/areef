@@ -1,11 +1,14 @@
-require "coveralls"
-Coveralls.wear!
+require 'codeclimate-test-reporter'
+require 'simplecov'
 
-require "simplecov"
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  CodeClimate::TestReporter::Formatter
+]
 SimpleCov.start
 
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+require "coveralls"
+Coveralls.wear!
 
 require 'rspec'
 require 'rack/test'
